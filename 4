@@ -1,0 +1,59 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int x = 5;
+    int* pa = &x;
+    printf("--- int ---\n");
+    printf("По адресу %p хранится *pa = %d\n", pa, *pa);
+    pa++;
+    printf("После pa++: %p\n", pa);
+    pa--;
+    printf("После pa--: %p, *pa = %d\n\n", pa, *pa);
+
+    double d = 3.14;
+    double* pd = &d;
+    printf("--- double ---\n");
+    printf("По адресу %p хранится *pd = %lf\n", pd, *pd);
+    pd++;
+    printf("После pd++: %p\n", pd);
+    pd--;
+    printf("После pd--: %p, *pd = %lf\n\n", pd, *pd);
+
+    char c = 'A';
+    char* pc = &c;
+    printf("--- char ---\n");
+    printf("По адресу %p хранится *pc = %c\n", pc, *pc);
+    pc++;
+    printf("После pc++: %p\n", pc);
+    pc--;
+    printf("После pc--: %p, *pc = %c\n\n", pc, *pc);
+
+    long double ld = 1.5;
+    long double* pld = &ld;
+    printf("--- long double ---\n");
+    printf("Начальный адрес: %p\n", pld);
+    pld++;
+    printf("После pld++:     %p\n\n", pld);
+
+    short unsigned int s = 10;
+    short unsigned int* ps = &s;
+    printf("--- short unsigned int ---\n");
+    printf("Начальный адрес: %p\n", ps);
+    ps++;
+    printf("После ps++:      %p\n\n", ps);
+
+    _Bool b = 1;
+    _Bool* pb = &b;
+    printf("--- _Bool ---\n");
+    printf("Начальный адрес: %p\n", pb);
+    pb++;
+    printf("После pb++:      %p\n", pb);
+
+    return 0;
+}
