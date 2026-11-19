@@ -1,0 +1,54 @@
+#define _CRT_SECURE_NO_WARNINGS
+#include <stdio.h>
+#include <locale.h>
+#include <stdlib.h>
+#include <math.h>
+
+int main() {
+    setlocale(LC_ALL, "Russian");
+
+    int x = 0x12345678;
+    int* prt = &x;
+    unsigned char* a1, * a2, * a3, * a4;
+    unsigned char* a;
+
+    a = (unsigned char*)prt;
+
+    a1 = a + 3; 
+    a2 = a + 2; 
+    a3 = a + 1; 
+    a4 = a;     
+
+    printf(" 1. Проверка порядка байтов (число 0x12345678) \n");
+    printf("От старшего адреса к младшему:\n");
+    printf("%.2x\n%.2x\n%.2x\n%.2x\n\n", *a1, *a2, *a3, *a4);
+
+    int n_int = 12345;
+    float n_float = 12345.0;
+    double n_double = 12345.0;
+
+    unsigned char* p;
+
+    printf(" 3. Код числа 12345 в типе int (%x байта) \n", sizeof(int));
+    p = (unsigned char*)&n_int;
+    for (int i = 0; i < sizeof(int); i++) {
+        printf("%.2x ", p[i]);
+    }
+    printf("\n\n");
+
+    printf(" 3. Код числа 12345.0 в типе float (%x байта) \n", sizeof(float));
+    p = (unsigned char*)&n_float;
+    for (int i = 0; i < sizeof(float); i++) {
+        printf("%.2x ", p[i]);
+    }
+    printf("\n\n");
+
+    printf(" 3. Код числа 12345.0 в типе double (%x байт) \n", sizeof(double));
+    p = (unsigned char*)&n_double;
+    for (int i = 0; i < sizeof(double); i++) {
+        printf("%.2x ", p[i]);
+    }
+    printf("\n");
+
+    return 0;
+}
